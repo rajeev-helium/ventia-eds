@@ -192,14 +192,17 @@ button.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5em;
   max-width: 100%;
   margin: 0;
   border: 2px solid transparent;
-  border-radius: 4px;
-  padding: 0.625em 1.5em;
+  border-radius: 100px;
+  padding: 0.65em 1.75em;
   font: inherit;
-  font-size: var(--body-font-size-s);
-  font-weight: 600;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   line-height: 1.25;
   text-decoration: none;
   cursor: pointer;
@@ -218,8 +221,8 @@ button.button:disabled {
 
 a.button.primary,
 button.button.primary {
-  border-color: var(--color-brand-primary);
-  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-secondary);
+  background-color: var(--color-brand-secondary);
   color: var(--color-white);
 }
 
@@ -227,8 +230,8 @@ a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--color-brand-primary-dark);
-  background-color: var(--color-brand-primary-dark);
+  border-color: var(--color-brand-primary);
+  background-color: var(--color-brand-primary);
   color: var(--color-white);
 }
 
@@ -278,9 +281,15 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+/* hero and full-bleed sections: no section margin */
+main > .section:has(.hero),
+main > .section:has(.cards.dark-panels) {
+  margin: 0;
+}
+
 @media (width >= 900px) {
   main > .section {
-    margin: 64px 0;
+    margin: 56px 0;
   }
 }
 
