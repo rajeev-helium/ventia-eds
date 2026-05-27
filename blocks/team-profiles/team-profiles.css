@@ -1,0 +1,97 @@
+.team-profiles > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.team-profile-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+}
+
+.team-profile-card:hover {
+  box-shadow: 0 6px 20px rgb(0 72 37 / 10%);
+}
+
+.team-profile-image {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--color-surface-alt);
+  line-height: 0;
+}
+
+.team-profile-image picture,
+.team-profile-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.team-profile-body {
+  padding: 1.25rem;
+}
+
+.team-profile-name {
+  font-size: var(--heading-font-size-s);
+  color: var(--color-brand-primary);
+  margin: 0 0 0.25rem;
+}
+
+.team-profile-title {
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  color: var(--color-brand-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.75rem;
+}
+
+.team-profile-bio {
+  font-size: var(--body-font-size-xs);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.team-profile-link {
+  display: inline-block;
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  color: var(--color-brand-accent);
+  text-decoration: none;
+}
+
+.team-profile-link:hover {
+  text-decoration: underline;
+}
+
+@media (width >= 600px) {
+  .team-profiles > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .team-profiles > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 1200px) {
+  .team-profiles > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

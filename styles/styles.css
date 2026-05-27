@@ -1,0 +1,325 @@
+/*
+ * Ventia EDS — global styles and design system
+ */
+
+:root {
+  /* Ventia brand palette — sourced from ui.frontend/src/site/_variables.scss */
+  --color-brand-primary: #004825;       /* $dark-green / $forest-green */
+  --color-brand-primary-dark: #003a1d;
+  --color-brand-secondary: #00994d;     /* $green */
+  --color-brand-accent: #a0cd60;        /* $bright-green */
+  --color-brand-navy: #0b3254;          /* $navy — used for dark overlays */
+  --color-brand-purple: #671c32;        /* $purple */
+  --color-background: #fff;
+  --color-surface: #f5f5f5;             /* $light-grey */
+  --color-surface-alt: #f4f4f4;         /* $color-gray-100 */
+  --color-text: #2a2a2a;               /* $body-text */
+  --color-text-muted: #555;            /* $body-text-secondary */
+  --color-border: #ccc;                /* $border-grey */
+  --color-white: #fff;
+
+  /* boilerplate aliases */
+  --background-color: var(--color-background);
+  --light-color: var(--color-surface);
+  --dark-color: var(--color-brand-primary);
+  --text-color: var(--color-text);
+  --link-color: var(--color-brand-secondary);
+  --link-hover-color: var(--color-brand-primary);
+
+  /* typography — Source Serif 4 (headings) + Inter (body) via Google Fonts */
+  --body-font-family: 'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
+  --heading-font-family: 'Source Serif 4', georgia, 'Times New Roman', serif;
+
+  /* body sizes (mobile first) */
+  --body-font-size-m: 16px;
+  --body-font-size-s: 15px;
+  --body-font-size-xs: 13px;
+
+  /* heading sizes (mobile first) */
+  --heading-font-size-xxl: 36px;
+  --heading-font-size-xl: 30px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
+
+  /* layout */
+  --section-max-width: 1015px;         /* matches $max-content-width */
+  --section-padding-x: 1rem;
+  --nav-height: 72px;
+  --grid-gap: 1.5rem;
+}
+
+@media (width >= 600px) {
+  :root {
+    --section-padding-x: 1.5rem;
+  }
+}
+
+@media (width >= 900px) {
+  :root {
+    --heading-font-size-xxl: 48px;
+    --heading-font-size-xl: 38px;
+    --heading-font-size-l: 30px;
+    --heading-font-size-m: 24px;
+    --heading-font-size-s: 20px;
+    --heading-font-size-xs: 17px;
+    --body-font-size-m: 16px;
+    --body-font-size-s: 15px;
+    --body-font-size-xs: 13px;
+    --section-padding-x: 2rem;
+  }
+}
+
+@media (width >= 1200px) {
+  :root {
+    --section-padding-x: 3rem;
+  }
+}
+
+/* base reset */
+body {
+  display: none;
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+}
+
+body.appear {
+  display: block;
+}
+
+header {
+  height: var(--nav-height);
+}
+
+header .header,
+footer .footer {
+  visibility: hidden;
+}
+
+header .header[data-block-status="loaded"],
+footer .footer[data-block-status="loaded"] {
+  visibility: visible;
+}
+
+/* headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0.85em;
+  margin-bottom: 0.3em;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  line-height: 1.2;
+  scroll-margin: 60px;
+  color: var(--color-brand-primary);
+}
+
+h1 { font-size: var(--heading-font-size-xxl); }
+h2 { font-size: var(--heading-font-size-xl); }
+h3 { font-size: var(--heading-font-size-l); }
+h4 { font-size: var(--heading-font-size-m); }
+h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); }
+
+p,
+dl,
+ol,
+ul,
+pre,
+blockquote {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+}
+
+code,
+pre {
+  font-size: var(--body-font-size-s);
+}
+
+pre {
+  padding: 16px;
+  border-radius: 6px;
+  background-color: var(--color-surface);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+main img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+
+.icon img {
+  height: 100%;
+  width: 100%;
+}
+
+/* links */
+a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* buttons */
+p.button-wrapper {
+  margin: 16px 0;
+}
+
+a.button:any-link,
+button.button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding: 0.625em 1.5em;
+  font: inherit;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+a.button[aria-disabled="true"],
+button.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+a.button.primary,
+button.button.primary {
+  border-color: var(--color-brand-primary);
+  background-color: var(--color-brand-primary);
+  color: var(--color-white);
+}
+
+a.button.primary:hover,
+a.button.primary:focus-visible,
+button.button.primary:hover,
+button.button.primary:focus-visible {
+  border-color: var(--color-brand-primary-dark);
+  background-color: var(--color-brand-primary-dark);
+  color: var(--color-white);
+}
+
+a.button.secondary,
+button.button.secondary {
+  border-color: var(--color-brand-primary);
+  background-color: transparent;
+  color: var(--color-brand-primary);
+}
+
+a.button.secondary:hover,
+a.button.secondary:focus-visible,
+button.button.secondary:hover,
+button.button.secondary:focus-visible {
+  background-color: var(--color-brand-primary);
+  color: var(--color-white);
+}
+
+/* accent = CTA (strong+em) */
+a.button.accent,
+button.button.accent {
+  border-color: var(--color-brand-accent);
+  background-color: var(--color-brand-accent);
+  color: var(--color-white);
+}
+
+a.button.accent:hover,
+a.button.accent:focus-visible,
+button.button.accent:hover,
+button.button.accent:focus-visible {
+  border-color: var(--color-brand-accent-dark);
+  background-color: var(--color-brand-accent-dark);
+}
+
+/* sections */
+main > .section {
+  margin: 48px 0;
+}
+
+main > .section > div {
+  max-width: var(--section-max-width);
+  margin: auto;
+  padding: 0 var(--section-padding-x);
+}
+
+main > .section:first-of-type {
+  margin-top: 0;
+}
+
+@media (width >= 900px) {
+  main > .section {
+    margin: 64px 0;
+  }
+}
+
+/* section metadata variants */
+main .section.light,
+main .section.highlight {
+  background-color: var(--color-surface);
+  margin: 0;
+  padding: 48px 0;
+}
+
+main .section.dark {
+  background-color: var(--color-brand-primary);
+  margin: 0;
+  padding: 48px 0;
+  color: var(--color-white);
+}
+
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark h6 {
+  color: var(--color-white);
+}
+
+@media (width >= 900px) {
+  main .section.light,
+  main .section.highlight,
+  main .section.dark {
+    padding: 80px 0;
+  }
+}
+
+/* input / form base */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}

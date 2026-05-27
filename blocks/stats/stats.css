@@ -1,0 +1,87 @@
+.stats > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 1.5rem;
+}
+
+.stats > ul > li {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.stats .stats-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-brand-accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.stats .stats-label {
+  display: block;
+  font-size: var(--body-font-size-s);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* accent background variant */
+.stats.accent-bg {
+  background-color: var(--color-brand-primary);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.stats.accent-bg .stats-label {
+  color: rgb(255 255 255 / 75%);
+}
+
+/* dark section variant */
+.section.dark .stats .stats-label {
+  color: rgb(255 255 255 / 75%);
+}
+
+@media (width >= 600px) {
+  .stats > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats .stats-number {
+    font-size: 3.5rem;
+  }
+}
+
+@media (width >= 900px) {
+  .stats > ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .stats > ul > li {
+    position: relative;
+    padding: 2rem 1.5rem;
+  }
+
+  .stats > ul > li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background-color: var(--color-border);
+  }
+
+  .section.dark .stats > ul > li::after {
+    background-color: rgb(255 255 255 / 15%);
+  }
+
+  .stats .stats-number {
+    font-size: 4rem;
+  }
+}
