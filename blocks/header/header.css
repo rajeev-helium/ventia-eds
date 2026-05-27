@@ -3,7 +3,7 @@ header .nav-wrapper {
   border-bottom: 1px solid var(--color-border);
   width: 100%;
   z-index: 100;
-  position: sticky;
+  position: fixed;
   top: 0;
   box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
 }
@@ -34,10 +34,6 @@ header nav[aria-expanded='true'] {
 }
 
 @media (width >= 900px) {
-  header .nav-wrapper {
-    position: sticky;
-  }
-
   header nav {
     display: flex;
     justify-content: space-between;
@@ -242,9 +238,9 @@ header nav[aria-expanded='true'] .nav-sections ul > li > ul > li {
     content: '';
     display: inline-block;
     position: absolute;
-    top: 0.45em;
+    top: 50%;
     right: 2px;
-    transform: rotate(135deg);
+    transform: translateY(-60%) rotate(135deg);
     width: 6px;
     height: 6px;
     border: 2px solid currentcolor;
@@ -254,9 +250,7 @@ header nav[aria-expanded='true'] .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 0.45em;
-    transform: rotate(315deg);
+    transform: translateY(-40%) rotate(315deg);
   }
 
   header nav .nav-sections ul {
