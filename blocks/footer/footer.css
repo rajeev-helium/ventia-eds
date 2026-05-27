@@ -1,7 +1,8 @@
 footer {
-  background-color: var(--color-brand-primary);
-  color: rgb(255 255 255 / 80%);
+  background-color: var(--color-white);
+  color: var(--color-text);
   font-size: var(--body-font-size-xs);
+  border-top: 1px solid var(--color-border);
 }
 
 /* JS wrapper div — constrain + pad */
@@ -16,30 +17,30 @@ footer .footer > div {
 
 /* legal row — last section full-width */
 footer .footer > div > div:last-child {
-  border-top: 1px solid rgb(255 255 255 / 15%);
+  border-top: 1px solid var(--color-border);
   padding-top: 1.5rem;
   margin-top: 0.5rem;
 }
 
 footer .footer p {
   margin: 0 0 0.5em;
-  color: rgb(255 255 255 / 70%);
+  color: var(--color-text-muted);
 }
 
 footer .footer a:any-link {
-  color: rgb(255 255 255 / 80%);
+  color: var(--color-text-muted);
   text-decoration: none;
 }
 
 footer .footer a:hover {
-  color: var(--color-brand-accent);
+  color: var(--color-brand-primary);
   text-decoration: underline;
 }
 
 footer .footer h2,
 footer .footer h3,
 footer .footer h4 {
-  color: var(--color-white);
+  color: var(--color-brand-primary);
   font-size: var(--body-font-size-s);
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -58,7 +59,7 @@ footer .footer ul li {
 }
 
 footer .footer em {
-  color: rgb(255 255 255 / 55%);
+  color: var(--color-text-muted);
   font-style: italic;
   font-size: 0.85em;
   display: block;
