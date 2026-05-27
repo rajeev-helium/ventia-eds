@@ -4,10 +4,21 @@ footer {
   font-size: var(--body-font-size-xs);
 }
 
+/* JS wrapper div — constrain + pad */
 footer .footer > div {
   margin: auto;
   max-width: var(--section-max-width);
   padding: 48px var(--section-padding-x) 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* legal row — last section full-width */
+footer .footer > div > div:last-child {
+  border-top: 1px solid rgb(255 255 255 / 15%);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 footer .footer p {
@@ -46,38 +57,32 @@ footer .footer ul li {
   margin-bottom: 0.5rem;
 }
 
-/* multi-column footer via authored columns block or default grid */
-footer .footer .default-content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-footer .footer hr {
-  border: 0;
-  border-top: 1px solid rgb(255 255 255 / 15%);
-  margin: 2rem 0 1.5rem;
-}
-
-/* acknowledgement of country — italicised, muted */
 footer .footer em {
   color: rgb(255 255 255 / 55%);
   font-style: italic;
   font-size: 0.85em;
+  display: block;
+  margin-top: 0.75rem;
 }
 
 @media (width >= 600px) {
-  footer .footer .default-content-wrapper {
+  footer .footer > div {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  footer .footer > div > div:last-child {
+    grid-column: 1 / -1;
   }
 }
 
 @media (width >= 900px) {
   footer .footer > div {
     padding: 64px var(--section-padding-x) 40px;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: start;
   }
 
-  footer .footer .default-content-wrapper {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+  footer .footer > div > div:last-child {
+    grid-column: 1 / -1;
   }
 }
